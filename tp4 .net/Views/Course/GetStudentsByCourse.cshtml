@@ -1,0 +1,39 @@
+﻿@model IEnumerable<Student>;
+@{
+    ViewData["Title"] = "Course";
+}
+
+@{
+    if (ViewBag.NotFound == true)
+    {
+        <div class="alert alert-warning">course not found!</div>
+    }
+    else
+    {
+        <h3>les étudiants du cours : @ViewBag.course </h3>
+        <div class="container">
+                <div class="row ">
+                    <div class="col-sm-1 ">Id</div>
+                    <div class="col-sm-2" >First Name</div>
+                    <div class="col-sm-2" >Last Name </div>
+                    <div class="col-sm-3">University</div>
+                    <div class="col-sm-3" >Phone Number</div>
+                </div>
+        </div>
+        foreach( Student s in Model)
+        {
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-1">@s.Id </div>
+                    <div class="col-sm-2">@s.first_name</div>
+                    <div class="col-sm-2">@s.last_name</div>
+                    <div class="col-sm-3">@s.university</div>
+                    <div class="col-sm-3">@s.phone_number</div>
+                </div>
+            </div>
+        }
+
+    }
+}
+
+
